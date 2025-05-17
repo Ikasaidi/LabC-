@@ -1,0 +1,12 @@
+﻿<Page x:Class="IdeaManager.UI.Views.MenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel Orientation="Horizontal" Background="LightGray" Height="40">
+        <Button Content="Liste des idées"
+                Width="150" Margin="5"
+                Click="IdeaList_Click"/>
+        <Button Content="Soumettre une idée"
+                Width="150" Margin="5"
+                Click="IdeaForm_Click"/>
+    </StackPanel>
+</Page>
