@@ -14,8 +14,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <views:IdeaFormView Grid.Row="1" />
     </Grid>
-    <Grid>
-        <views:IdeaFormView />
-    </Grid>
+    
+        
+    
 </Window>

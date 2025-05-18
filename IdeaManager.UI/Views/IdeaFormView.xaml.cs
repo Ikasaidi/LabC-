@@ -26,5 +26,10 @@ namespace IdeaManager.UI.Views
             InitializeComponent();
             DataContext = vm;
         }
+
+        public IdeaFormView() 
+        {
+            InitializeComponent();
+        }
     }
 }
