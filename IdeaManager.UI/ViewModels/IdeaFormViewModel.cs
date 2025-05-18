@@ -10,10 +10,12 @@ namespace IdeaManager.UI.ViewModels
     public partial class IdeaFormViewModel : ObservableObject
     {
         private readonly IIdeaService _ideaService;
+        private readonly IdeaListViewModel _ideaListViewModel;
 
-        public IdeaFormViewModel(IIdeaService ideaService)
+        public IdeaFormViewModel(IIdeaService ideaService, IdeaListViewModel ideaListViewMode)
         {
             _ideaService = ideaService;
+            _ideaListViewModel = ideaListViewMode;
         }
 
         [ObservableProperty]
@@ -46,6 +48,7 @@ namespace IdeaManager.UI.ViewModels
 
                 Title = string.Empty;
                 Description = string.Empty;
+                await _ideaListViewModel.LoadIdeasAsync();
             }
             catch (Exception ex)
             {

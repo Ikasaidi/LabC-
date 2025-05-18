@@ -8,9 +8,15 @@ namespace IdeaManager.Data
     {
         public IdeaDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<IdeaDbContext>();
-            optionsBuilder.UseSqlite("Data Source=ideas.db");
+            var dbPath = Path.GetFullPath("ideas_fixed.db");
+        
 
+
+            //Verifier 
+            Console.WriteLine(">>> DB utilisé = " + dbPath);
+            var optionsBuilder = new DbContextOptionsBuilder<IdeaDbContext>();
+
+            optionsBuilder.UseSqlite($"Data Source={dbPath}");
             return new IdeaDbContext(optionsBuilder.Options);
         }
     }

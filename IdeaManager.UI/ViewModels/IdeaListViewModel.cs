@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using IdeaManager.Core.Entities;
 using IdeaManager.Core.Interfaces;
 using System.Collections.ObjectModel;
@@ -13,13 +14,14 @@ namespace IdeaManager.UI.ViewModels
         public IdeaListViewModel(IIdeaService ideaService)
         {
             _ideaService = ideaService;
-            LoadIdeas();
+            
         }
 
         [ObservableProperty]
         private ObservableCollection<Idea> ideas = new();
 
-        private async void LoadIdeas()
+        [RelayCommand]
+        public async Task LoadIdeasAsync()
         {
             var list = await _ideaService.GetAllAsync();
             Ideas = new ObservableCollection<Idea>(list);

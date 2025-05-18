@@ -16,6 +16,8 @@ namespace IdeaManager.UI
             services.AddTransient<IdeaFormView>();
             services.AddSingleton<MainWindow>();
             services.AddSingleton<MenuView>();
+            services.AddSingleton<IdeaListView>();
+            services.AddSingleton<IdeaListViewModel>();
 
             return services;
         }

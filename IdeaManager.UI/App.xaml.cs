@@ -1,5 +1,7 @@
 ﻿using IdeaManager.Data;
 using IdeaManager.Services;
+using IdeaManager.UI.ViewModels;
+using IdeaManager.UI.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 
@@ -17,9 +19,22 @@ public partial class App : Application
     {
         var services = new ServiceCollection();
 
-        services.AddDataServices("Data Source=ideas.db");
+        services.AddDataServices("Data Source=ideas_fixed.db");
         services.AddDomainServices();
         services.AddUIServices();
+
+        //Navigation bcp plus simple 
+        services.AddTransient<IdeaFormViewModel>();
+        services.AddTransient<IdeaListViewModel>();
+        services.AddTransient<MenuViewModel>();
+
+
+        services.AddTransient<IdeaFormView>();
+        services.AddTransient<IdeaListView>();
+        services.AddTransient<MenuView>();
+
+        
+        services.AddSingleton<MainWindow>();
 
         ServiceProvider = services.BuildServiceProvider();
 

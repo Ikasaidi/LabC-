@@ -12,13 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IdeaManager.UI.ViewModels;
 
 namespace IdeaManager.UI.Views
 {
     /// <summary>
     /// Logique d'interaction pour MenuView.xaml
     /// </summary>
-    public partial class MenuView : Page
+    public partial class MenuView : UserControl
     {
+        public MenuView(MenuViewModel viewModel)
+        {
+            InitializeComponent();
+            DataContext = viewModel;
+        }
     }
 }

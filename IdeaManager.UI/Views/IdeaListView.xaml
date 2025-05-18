@@ -1,4 +1,4 @@
-﻿<Page x:Class="IdeaManager.UI.Views.IdeaListView"
+﻿<UserControl x:Class="IdeaManager.UI.Views.IdeaListView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,18 @@
       xmlns:local="clr-namespace:IdeaManager.UI.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="IdeaListView">
+      >
 
     <Grid>
-        
+        <ListBox ItemsSource="{Binding Ideas}" Margin="20">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock Text="{Binding Title}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Description}" FontStyle="Italic"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
-</Page>
+</UserControl>

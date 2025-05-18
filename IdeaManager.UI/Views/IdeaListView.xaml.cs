@@ -12,17 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IdeaManager.UI.ViewModels;
 
 namespace IdeaManager.UI.Views
 {
     /// <summary>
     /// Logique d'interaction pour IdeaListView.xaml
     /// </summary>
-    public partial class IdeaListView : Page
+    public partial class IdeaListView : UserControl
     {
-        public IdeaListView()
+        private readonly IdeaListViewModel _vm;
+
+        public IdeaListView(IdeaListViewModel vm)
         {
             InitializeComponent();
+            _vm = vm;
+            DataContext = vm;
+
+            Loaded += async (_, __) => await _vm.LoadIdeasAsync();
         }
     }
 }
