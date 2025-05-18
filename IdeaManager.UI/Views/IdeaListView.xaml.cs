@@ -29,6 +29,7 @@ namespace IdeaManager.UI.Views
             _vm = vm;
             DataContext = vm;
 
+            //Permet de mettre les bonnes données à chaque affichage pour une méthode async 
             Loaded += async (_, __) => await _vm.LoadIdeasAsync();
         }
     }
